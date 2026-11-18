@@ -36,6 +36,10 @@ const parser = new XMLParser({
   parseAttributeValue: false,
   parseTagValue: false,
   trimValues: true,
+  // Statuspage.io feeds expand >1000 entities (default cap) — github,
+  // discord, stripe etc. all failed with "Entity expansion limit exceeded".
+  // 10000 is plenty (largest seen ~1036) while still bounding abuse.
+  processEntities: { maxTotalExpansions: 10000 },
 });
 
 function asArray(v) {
