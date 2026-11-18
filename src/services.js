@@ -12,8 +12,9 @@ export const SERVICES = [
   { id: 'xai',        shard: 'a', name: 'xAI / Grok',            url: 'https://status.x.ai/feed.xml',                             format: 'auto' },
   { id: 'slack',      shard: 'a', name: 'Slack',                 url: 'https://slack-status.com/feed/rss',                        format: 'auto' },
   { id: 'gitlab',     shard: 'a', name: 'GitLab',                url: 'https://status.gitlab.com/pages/5b36dc6502d06804c08349f7/rss', format: 'auto' },
-  { id: 'docker',     shard: 'a', name: 'Docker',                url: 'https://www.dockerstatus.com/pages/533c6539221ae15e3f000031/rss', format: 'auto' },
-  { id: 'algolia',    shard: 'a', name: 'Algolia',               url: 'https://status.algolia.com/history.rss',                   format: 'auto' },
+  { id: 'docker',     shard: 'a', name: 'Docker',                url: 'https://www.dockerstatus.com/history.rss',                       format: 'auto' },
+  // Algolia removed 2026-11-18: status.algolia.com serves HTML on both
+  // /history.rss and /history.atom — no RSS/Atom feed exists.
   { id: 'azure',      shard: 'a', name: 'Microsoft Azure',       url: 'https://rssfeed.azure.status.microsoft/en-us/status/feed/', format: 'auto' },
   { id: 'aws-ec2',    shard: 'a', name: 'AWS (EC2 us-east-1)',   url: 'https://status.aws.amazon.com/rss/ec2-us-east-1.rss',      format: 'auto' },
   { id: 'gcloud',     shard: 'a', name: 'Google Cloud',          url: 'https://status.cloud.google.com/incidents.json',           format: 'json-gc' },
