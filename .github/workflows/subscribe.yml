@@ -1,10 +1,14 @@
-# BACKUP ONLY — normally the always-on daemon (src/daemon.js, e.g. on FPS.ms)
-# handles bot commands with seconds-level latency. Run this manually ONLY if the
-# daemon host is down: both consumers call getUpdates, so running this while the
-# daemon is up will swallow updates / double-reply.
-name: Subscribe — BACKUP (daemon normally handles commands)
+# Commands are processed on a schedule now (every 5 min) — there is no
+# always-on daemon host, so without this /subscribe is never processed and
+# the subscriber list stays empty (nobody ever gets an alert).
+# NOTE: run this ONLY while no daemon is running: both consumers call
+# getUpdates, so running this while a daemon is up will swallow updates /
+# double-reply.
+name: Subscribe — processes bot commands on a schedule
 
 on:
+  schedule:
+    - cron: '*/5 * * * *'
   workflow_dispatch:
 
 permissions:
